@@ -37,4 +37,8 @@ public final class Constants {
     public static final int kXboxController2Port = 1;
   }
 
+  public static class EncoderConstants{
+        public static final int kDriverEncoderConvFact = Math.PI*6/8.45;
+  }
+
 }
