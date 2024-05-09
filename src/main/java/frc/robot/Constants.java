@@ -16,6 +16,8 @@ public final class Constants {
   public static class DriveConstants {
     public static final int kFrontLeftDrivePort = 1;
     public static final int kBackLeftDrivePort = 3;
+    public static final int kFrontRightDrivePort = 2;
+    public static final int kBackRightDrivePort = 4;
   }
 
   public static class ShootConstants {
