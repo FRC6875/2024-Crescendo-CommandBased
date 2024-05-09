@@ -21,7 +21,10 @@ public final class Constants {
   }
 
   public static class ShootConstants {
-
+    public static final int kLeftShootPort =6;
+  public static final int kRightShootPort = 10;
+  public static final int kLeftshootPort2 = 5;
+  public static final int kRightShootPort2 = 9;
   }
 
   public static class IntakeConstants {
