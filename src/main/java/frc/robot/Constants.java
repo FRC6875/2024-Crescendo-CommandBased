@@ -32,4 +32,9 @@ public final class Constants {
     public static final int kRightIntakePort = 8;
   }
 
+  public static class ControllerConstants {
+    public static final int kXboxController1Port = 0;
+    public static final int kXboxController2Port = 1;
+  }
+
 }
