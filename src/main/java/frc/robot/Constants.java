@@ -22,9 +22,9 @@ public final class Constants {
 
   public static class ShootConstants {
     public static final int kLeftShootPort =6;
-  public static final int kRightShootPort = 10;
-  public static final int kLeftshootPort2 = 5;
-  public static final int kRightShootPort2 = 9;
+    public static final int kRightShootPort = 10;
+    public static final int kLeftshootPort2 = 5;
+    public static final int kRightShootPort2 = 9;
   }
 
   public static class IntakeConstants {
@@ -38,7 +38,7 @@ public final class Constants {
   }
 
   public static class EncoderConstants{
-        public static final int kDriverEncoderConvFact = Math.PI*6/8.45;
+    public static final int kDriverEncoderConvFact = Math.PI*6/8.45;
   }
 
 }
