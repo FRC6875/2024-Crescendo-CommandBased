@@ -31,7 +31,42 @@ public class DriveSubsystem extends SubsystemBase {
 
   
   /** Creates a new ExampleSubsystem. */
-  public DriveSubsystem() {}
+  public DriveSubsystem() {
+     
+    // initialize motors
+    frontLeftDriveMotor.restoreFactoryDefaults();
+    frontRightDriveMotor.restoreFactoryDefaults();
+    backRightDriveMotor.restoreFactoryDefaults();
+    backLeftDriveMotor.restoreFactoryDefaults();
+    
+    // set motor idle mode to brake
+    frontLeftDriveMotor.setIdleMode(IdleMode.kBrake);
+    frontRightDriveMotor.setIdleMode(IdleMode.kBrake);
+    backRightDriveMotor.setIdleMode(IdleMode.kBrake);
+    backLeftDriveMotor.setIdleMode(IdleMode.kBrake);
+   
+    // set ramp rate to 1 s
+    frontLeftDriveMotor.setClosedLoopRampRate(1);
+    frontRightDriveMotor.setClosedLoopRampRate(1);
+    backRightDriveMotor.setClosedLoopRampRate(1);
+    backLeftDriveMotor.setClosedLoopRampRate(1);
+
+    // initialize encoders
+    backLeftEncoder = backLeftDriveMotor.getEncoder(Type.kHallSensor, 42);
+    backRightEncoder = backRightDriveMotor.getEncoder(Type.kHallSensor, 42);
+    frontLeftEncoder = frontLeftDriveMotor.getEncoder(Type.kHallSensor, 42);
+    frontRightEncoder = frontRightDriveMotor.getEncoder(Type.kHallSensor, 42);
+    rightShootEncoder = rightShoot.getEncoder(Type.kHallSensor, 42);
+    leftShootEncoder = leftShoot.getEncoder(Type.kHallSensor, 42);
+
+    // set for the wheel motors as we want to know the positions
+    //  PI * WheelDiameter / GearRatio --WheelDiameter is in inches
+    frontLeftEncoder.setPositionConversionFactor(Math.PI*6/8.45);
+    frontRightEncoder.setPositionConversionFactor(Math.PI*6/8.45);
+    backLeftEncoder.setPositionConversionFactor(Math.PI*6/8.45);
+    backRightEncoder.setPositionConversionFactor(Math.PI*6/8.45);
+    
+  }
 
   /**
    * Example command factory method.
