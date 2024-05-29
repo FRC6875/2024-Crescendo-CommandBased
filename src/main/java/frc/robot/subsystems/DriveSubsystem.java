@@ -69,6 +69,7 @@ public class DriveSubsystem extends SubsystemBase {
       // set leader/followers - this connects the front and back motors to drive together
     backLeftDriveMotor.follow(frontLeftDriveMotor);
     backRightDriveMotor.follow(frontRightDriveMotor);
+    //.
 
     // set motor inversion (may not have to do this - test without it later)
     frontLeftDriveMotor.setInverted(true);
