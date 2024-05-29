@@ -66,6 +66,22 @@ public class DriveSubsystem extends SubsystemBase {
     backLeftEncoder.setPositionConversionFactor(Math.PI*6/8.45);
     backRightEncoder.setPositionConversionFactor(Math.PI*6/8.45);
     
+      // set leader/followers - this connects the front and back motors to drive together
+    backLeftDriveMotor.follow(frontLeftDriveMotor);
+    backRightDriveMotor.follow(frontRightDriveMotor);
+
+    // set motor inversion (may not have to do this - test without it later)
+    frontLeftDriveMotor.setInverted(true);
+    backLeftDriveMotor.setInverted(true);
+    frontRightDriveMotor.setInverted(false);
+    backRightDriveMotor.setInverted(false); // have to do seperate for each motor
+
+      // burn settings into memory
+    frontLeftDriveMotor.burnFlash();
+    frontRightDriveMotor.burnFlash();
+    backRightDriveMotor.burnFlash();
+    backLeftDriveMotor.burnFlash();
+
   }
 
   /**
