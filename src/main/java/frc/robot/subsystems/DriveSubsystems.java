@@ -18,6 +18,20 @@ public class DriveSubsystem extends SubsystemBase {
   CANSparkMax frontRightDriveMotor = new CANSparkMax(kFrontRightDrivePort, MotorType.kBrushless);
   CANSparkMax backRightDriveMotor = new CANSparkMax(kBackRightDrivePort, MotorType.kBrushless);
 
+   //declare Encorders
+  RelativeEncoder frontLeftEncoder;
+  RelativeEncoder frontRightEncoder;
+  RelativeEncoder backLeftEncoder;
+  RelativeEncoder backRightEncoder;
+  RelativeEncoder leftShootEncoder;
+  RelativeEncoder rightShootEncoder;
+
+  // delcare gyro
+  AHRS gyro = new AHRS(SPI.Port.kMXP);
+
+  Timer waitTimer = new Timer();
+  Timer autoTimer = new Timer();
+  
   /** Creates a new ExampleSubsystem. */
   public DriveSubsystem() {}
 
