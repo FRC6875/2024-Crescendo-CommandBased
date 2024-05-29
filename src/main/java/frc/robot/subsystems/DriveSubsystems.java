@@ -13,10 +13,10 @@ public class DriveSubsystem extends SubsystemBase {
 
 // declare all of our motors. use the constants for the port
 
-  CANSparkMax leftShoot = new CANSparkMax(kLeftShootPort, MotorType.kBrushless);
-  CANSparkMax rightShoot = new CANSparkMax(kRightIntakePort, MotorType.kBrushless);
-  CANSparkMax rightShoot2 = new CANSparkMax(kRightShootPort2, MotorType.kBrushed);
-  CANSparkMax leftShoot2 = new CANSparkMax(kLeftshootPort2, MotorType.kBrushed);
+  CANSparkMax frontLeftDriveMotor = new CANSparkMax(kFrontLeftDrivePor, MotorType.kBrushless);
+  CANSparkMax backLeftDriveMotor = new CANSparkMax(kBackLeftDrivePort, MotorType.kBrushless);
+  CANSparkMax frontRightDriveMotor = new CANSparkMax(kFrontRightDrivePort, MotorType.kBrushless);
+  CANSparkMax backRightDriveMotor = new CANSparkMax(kBackRightDrivePort, MotorType.kBrushless);
 
   /** Creates a new ExampleSubsystem. */
   public DriveSubsystem() {}
