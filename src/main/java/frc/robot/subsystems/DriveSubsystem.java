@@ -1,3 +1,4 @@
+
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
@@ -12,8 +13,25 @@ public class DriveSubsystem extends SubsystemBase {
 
 // declare all of our motors. use the constants for the port
 
+  CANSparkMax frontLeftDriveMotor = new CANSparkMax(kFrontLeftDrivePort, MotorType.kBrushless);
+  CANSparkMax backLeftDriveMotor = new CANSparkMax(kBackLeftDrivePort, MotorType.kBrushless);
+  CANSparkMax frontRightDriveMotor = new CANSparkMax(kFrontRightDrivePort, MotorType.kBrushless);
+  CANSparkMax backRightDriveMotor = new CANSparkMax(kBackRightDrivePort, MotorType.kBrushless);
 
+   //declare Encorders
+  RelativeEncoder frontLeftEncoder;
+  RelativeEncoder frontRightEncoder;
+  RelativeEncoder backLeftEncoder;
+  RelativeEncoder backRightEncoder;
+  RelativeEncoder leftShootEncoder;
+  RelativeEncoder rightShootEncoder;
 
+  // delcare gyro
+  AHRS gyro = new AHRS(SPI.Port.kMXP);
+
+  Timer waitTimer = new Timer();
+  Timer autoTimer = new Timer();
+  
   /** Creates a new ExampleSubsystem. */
   public DriveSubsystem() {}
 
