@@ -56,8 +56,6 @@ public class DriveSubsystem extends SubsystemBase {
     backRightEncoder = backRightDriveMotor.getEncoder(Type.kHallSensor, 42);
     frontLeftEncoder = frontLeftDriveMotor.getEncoder(Type.kHallSensor, 42);
     frontRightEncoder = frontRightDriveMotor.getEncoder(Type.kHallSensor, 42);
-    rightShootEncoder = rightShoot.getEncoder(Type.kHallSensor, 42);
-    leftShootEncoder = leftShoot.getEncoder(Type.kHallSensor, 42);
 
     // set for the wheel motors as we want to know the positions
     //  PI * WheelDiameter / GearRatio --WheelDiameter is in inches
