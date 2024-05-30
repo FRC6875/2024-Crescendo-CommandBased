@@ -29,7 +29,7 @@ public class DriveSubsystem extends SubsystemBase {
   // delcare gyro
   AHRS gyro = new AHRS(SPI.Port.kMXP);
 
-  DifferentialDrive robotDrive;
+  DifferentialDrive m_robotDrive;
 
 
   /** Creates a new ExampleSubsystem. */
@@ -83,7 +83,7 @@ public class DriveSubsystem extends SubsystemBase {
     backRightDriveMotor.burnFlash();
     backLeftDriveMotor.burnFlash();
         
-    robotDrive = new DifferentialDrive(frontLeftDriveMotor,frontRightDriveMotor); //all motors connected
+    m_robotDrive = new DifferentialDrive(frontLeftDriveMotor,frontRightDriveMotor); //all motors connected
 
 
   }
