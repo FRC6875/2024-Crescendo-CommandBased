@@ -115,6 +115,13 @@ public class DriveSubsystem extends SubsystemBase {
     m_robotDrive.arcadeDrive(forward, rotation);
   }
 
+  public boolean resetEncoders(){
+    backLeftEncoder.reset();
+     backRightEncoder.reset();
+     frontLeftEncoder.reset();
+     frontRightEncoder.reset();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
