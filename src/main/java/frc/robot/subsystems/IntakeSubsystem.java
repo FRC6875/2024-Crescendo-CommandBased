@@ -19,7 +19,7 @@ public class intakeSubsystem extends SubsystemBase {
 
  
   /** Creates a new ExampleSubsystem. */
-  public intakeSubsystem() {
+  public IntakeSubsystem() {
      
     // set motor inversion 
   rightIntake.setInverted(false);
