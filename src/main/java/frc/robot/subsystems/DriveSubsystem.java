@@ -111,15 +111,19 @@ public class DriveSubsystem extends SubsystemBase {
     // Query some boolean state, such as a digital sensor.
     return false;
   }
-  public boolean drive(double forward, double rotation){
+  public void drive(double forward, double rotation){
     m_robotDrive.arcadeDrive(forward, rotation);
   }
 
-  public boolean resetEncoders(){
+  public void resetEncoders(){
     backLeftEncoder.reset();
      backRightEncoder.reset();
      frontLeftEncoder.reset();
      frontRightEncoder.reset();
+  }
+
+  public void stopDriving() {
+    m_robotDrive.arcadeDrive(0,0);
   }
 
   @Override
