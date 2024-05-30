@@ -111,6 +111,9 @@ public class DriveSubsystem extends SubsystemBase {
     // Query some boolean state, such as a digital sensor.
     return false;
   }
+  public boolean drive(double forward, double rotation){
+    m_robotDrive.arcadeDrive(forward, rotation);
+  }
 
   @Override
   public void periodic() {
