@@ -126,6 +126,10 @@ public class DriveSubsystem extends SubsystemBase {
     m_robotDrive.arcadeDrive(0,0);
   }
 
+  public void resetGyro(){
+    gyro.reset();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
