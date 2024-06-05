@@ -30,6 +30,7 @@ public final class Constants {
   public static class IntakeConstants {
     public static final int kLeftIntakePort = 7;
     public static final int kRightIntakePort = 8;
+    public static final int kIntakeSensorPort = 0;
   }
 
   public static class ControllerConstants {

@@ -15,6 +15,9 @@ public class intakeSubsystem extends SubsystemBase {
  CANSparkMax leftIntake = new CANSparkMax(7, MotorType.kBrushed);
  CANSparkMax rightIntake = new CANSparkMax(8, MotorType.kBrushed);
 
+//digital input sensor
+ DigitalInput intakeSensor = new DigitalInput(kIntakeSensorPort);
+
 
 
  
@@ -22,8 +25,8 @@ public class intakeSubsystem extends SubsystemBase {
   public IntakeSubsystem() {
      
     // set motor inversion 
-  rightIntake.setInverted(false);
-  leftIntake.setInverted(true);
+    rightIntake.setInverted(false);
+    leftIntake.setInverted(true);
    
   }
 
