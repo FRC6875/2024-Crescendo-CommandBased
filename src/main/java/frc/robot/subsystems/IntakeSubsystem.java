@@ -63,6 +63,10 @@ public class intakeSubsystem extends SubsystemBase {
     leftIntake.set(0);
   }   // end intake
 
+  private boolean isIntake(){
+    return intakeSensor.get();
+  }
+
   
 
   @Override
