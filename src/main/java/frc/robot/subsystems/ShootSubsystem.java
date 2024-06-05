@@ -47,6 +47,11 @@ public class ShootSubsystem extends SubsystemBase {
    *
    * @return a command
    */
+
+  public boolean getShootSpeed(double threshold){
+    return (leftShoot.get() == threshold) && (rightShoot.get() == threshold);
+  }
+
   public Command exampleMethodCommand() {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
