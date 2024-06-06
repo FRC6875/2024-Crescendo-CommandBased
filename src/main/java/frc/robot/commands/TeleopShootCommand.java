@@ -30,13 +30,16 @@ public class TeleopShootCommand extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_shootSubsystem.intake(0.5);
+    m_shootSubsystem.runNeos(0.7);
+    if(m_shootSubsystem.getShootSpeed(0.65)){
+      m_shootSubsystem.runSims(0.7);
+    }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-      m_shootSubsystem.intakeStop();
+      m_shootSubsystem.shootStop();
   }
 
   // Returns true when the command should end.
