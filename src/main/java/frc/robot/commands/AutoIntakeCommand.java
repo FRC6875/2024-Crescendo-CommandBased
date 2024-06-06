@@ -8,19 +8,19 @@ import frc.robot.subsystem.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
-public class TeleopIntakeCommand extends Command {
+public class AutoIntakeCommand extends Command {
 
   private final IntakeSubsystem m_intakeSubsystem;
 
   /**
-   * Creates a new TeleopIntakeCommand.
+   * Creates a new AutoIntakeCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public TeleopIntakeCommand(IntakeSubsystem intakeSubsystem) {
+  public AutoIntakeCommand(IntakeSubsystem intakeSubsystem) {
     m_intakeSubsystem = intakeSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(intakeSubsystem);
+    //addRequirements(intakeSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -33,7 +33,7 @@ public class TeleopIntakeCommand extends Command {
     m_intakeSubsystem.intake(0.5);
   }
 
-  // Called once the command ends or is interrupted.
+  // Called once the command ends or is interrupted. isFinished also coutns as interrupted
   @Override
   public void end(boolean interrupted) {
       m_intakeSubsystem.intakeStop();
@@ -42,6 +42,6 @@ public class TeleopIntakeCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return m_intakeSubsystem.isIntake();
   }
 }
