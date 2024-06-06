@@ -8,6 +8,8 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.ShootSubsystem;
+import frc.robot.commands.TeleopShootCommand;
 import frc.robot.commands.TeleopIntakeCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -25,7 +27,8 @@ import edu.wpi.first.wpilibj.XboxController;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
-  private final IntakeSubsystem m_robotIntake = new IntakeSubsystem();
+  private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
+  private final ShootSubsystem m_shootSubsystem = new ShootSubsystem();
 
   XboxController m_controller1 = new XboxController(kXboxController1Port); //drive controller
   XboxController m_controller2 = new XboxController(kXboxController2Port); //shoot/intake/actuator controller
@@ -56,6 +59,8 @@ public class RobotContainer {
     // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     // while a is being held on the 2nd controller, create a new instance of TeleopIntakeCommand
     m_controller2.a().whileTrue(new TeleopIntakeCommand(m_intakeSubsystem));
+
+    m_controller2.x().whileTrue(new TeleopShootCommand(m_shootSubsystem));
   }
 
   /**
