@@ -56,7 +56,12 @@ public class ShootSubsystem extends SubsystemBase {
     leftShoot2.set(speed);
     rightShoot2.set(speed);
   }
+ 
+  public void runNeos(double speed){
+    leftShoot.set(speed);
+    rightShoot.set(speed);
 
+  }
 
 
   public void stopShoot() {
