@@ -52,6 +52,15 @@ public class ShootSubsystem extends SubsystemBase {
     return (leftShoot.get() == threshold) && (rightShoot.get() == threshold);
   }
 
+  public void stopShoot() {
+
+    leftShoot.set(0);
+    rightShoot.set(0);
+    leftShoot2.set(0);
+    rightShoot2.set(0);
+
+  }
+
   public Command exampleMethodCommand() {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
