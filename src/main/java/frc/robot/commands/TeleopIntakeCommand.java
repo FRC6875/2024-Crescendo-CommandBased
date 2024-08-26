@@ -4,7 +4,7 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystem.IntakeSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */

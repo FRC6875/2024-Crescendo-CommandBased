@@ -5,10 +5,16 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class intakeSubsystem extends SubsystemBase {
+import frc.robot.Constants;
+
+public class IntakeSubsystem extends SubsystemBase {
 
 
 // declare all of our motors. use the constants for the port
@@ -16,7 +22,7 @@ public class intakeSubsystem extends SubsystemBase {
  CANSparkMax rightIntake = new CANSparkMax(8, MotorType.kBrushed);
 
 //digital input sensor
- DigitalInput intakeSensor = new DigitalInput(kIntakeSensorPort);
+ DigitalInput intakeSensor = new DigitalInput(Constants.IntakeConstants.kIntakeSensorPort);
 
 
 
@@ -52,18 +58,18 @@ public class intakeSubsystem extends SubsystemBase {
  
   
 
-  private void intake(double speed) {
+  public void intake(double speed) {
     rightIntake.set(speed);
     leftIntake.set(speed);
   }   // end intake
 
     
-  private void intakeStop(double speed) {
+  public void intakeStop() {
     rightIntake.set(0);
     leftIntake.set(0);
   }   // end intake
 
-  private boolean isIntake(){
+  public boolean isIntake(){
     return intakeSensor.get();
   }
 

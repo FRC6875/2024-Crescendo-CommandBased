@@ -7,8 +7,12 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+
 import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.revrobotics.SparkAbsoluteEncoder.Type;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 
 public class ShootSubsystem extends SubsystemBase {
 
@@ -16,10 +20,10 @@ public class ShootSubsystem extends SubsystemBase {
 // declare all of our motors. use the constants for the port
 
   // declare shooter motors
-  CANSparkMax leftShoot = new CANSparkMax(kLeftShootPort, MotorType.kBrushless);
-  CANSparkMax rightShoot = new CANSparkMax(kRightShootPort, MotorType.kBrushless);
-  CANSparkMax rightShoot2 = new CANSparkMax(kRightShootPort2, MotorType.kBrushed);
-  CANSparkMax leftShoot2 = new CANSparkMax(kLeftshootPort2, MotorType.kBrushed);
+  CANSparkMax leftShoot = new CANSparkMax(Constants.ShootConstants.kLeftShootPort, MotorType.kBrushless);
+  CANSparkMax rightShoot = new CANSparkMax(Constants.ShootConstants.kRightShootPort, MotorType.kBrushless);
+  CANSparkMax rightShoot2 = new CANSparkMax(Constants.ShootConstants.kRightShootPort2, MotorType.kBrushed);
+  CANSparkMax leftShoot2 = new CANSparkMax(Constants.ShootConstants.kLeftshootPort2, MotorType.kBrushed);
 
 //declare shoot encoders
   RelativeEncoder leftShootEncoder;

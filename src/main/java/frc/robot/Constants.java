@@ -39,7 +39,7 @@ public final class Constants {
   }
 
   public static class EncoderConstants{
-    public static final int kDriverEncoderConvFact = Math.PI*6/8.45;
+    public static final int kDriverEncoderConvFact = (int) (Math.PI*6/8.45);
   }
 
 }

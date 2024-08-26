@@ -7,9 +7,12 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.SparkRelativeEncoder.Type;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.kauailabs.navx.frc.AHRS;
@@ -22,10 +25,10 @@ public class DriveSubsystem extends SubsystemBase {
 
 // declare all of our motors. use the constants for the port
 
-  CANSparkMax frontLeftDriveMotor = new CANSparkMax(kFrontLeftDrivePort, MotorType.kBrushless);
-  CANSparkMax backLeftDriveMotor = new CANSparkMax(kBackLeftDrivePort, MotorType.kBrushless);
-  CANSparkMax frontRightDriveMotor = new CANSparkMax(kFrontRightDrivePort, MotorType.kBrushless);
-  CANSparkMax backRightDriveMotor = new CANSparkMax(kBackRightDrivePort, MotorType.kBrushless);
+  CANSparkMax frontLeftDriveMotor = new CANSparkMax(Constants.DriveConstants.kFrontLeftDrivePort, MotorType.kBrushless);
+  CANSparkMax backLeftDriveMotor = new CANSparkMax(Constants.DriveConstants.kBackLeftDrivePort, MotorType.kBrushless);
+  CANSparkMax frontRightDriveMotor = new CANSparkMax(Constants.DriveConstants.kFrontRightDrivePort, MotorType.kBrushless);
+  CANSparkMax backRightDriveMotor = new CANSparkMax(Constants.DriveConstants.kBackRightDrivePort, MotorType.kBrushless);
 
    //declare Encorders
   RelativeEncoder frontLeftEncoder;

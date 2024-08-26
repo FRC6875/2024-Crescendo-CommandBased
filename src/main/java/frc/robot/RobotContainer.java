@@ -4,14 +4,11 @@
 
 package frc.robot;
 
-import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootSubsystem;
 import frc.robot.commands.TeleopShootCommand;
 import frc.robot.commands.TeleopIntakeCommand;
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -30,8 +27,8 @@ public class RobotContainer {
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
   private final ShootSubsystem m_shootSubsystem = new ShootSubsystem();
 
-  XboxController m_controller1 = new XboxController(kXboxController1Port); //drive controller
-  XboxController m_controller2 = new XboxController(kXboxController2Port); //shoot/intake/actuator controller
+  XboxController m_controller1 = new XboxController(Constants.ControllerConstants.kXboxController1Port); //drive controller
+  XboxController m_controller2 = new XboxController(Constants.ControllerConstants.kXboxController2Port); //shoot/intake/actuator controller
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -50,17 +47,17 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
+    // new Trigger(m_exampleSubsystem::exampleCondition)
+    //     .onTrue(new ExampleCommand(m_exampleSubsystem));
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
 
     // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     // while a is being held on the 2nd controller, create a new instance of TeleopIntakeCommand
-    m_controller2.a().whileTrue(new TeleopIntakeCommand(m_intakeSubsystem));
+    // m_controller2.a(null).whileTrue(new TeleopIntakeCommand(m_intakeSubsystem));
 
-    m_controller2.x().whileTrue(new TeleopShootCommand(m_shootSubsystem));
+    // m_controller2.x().whileTrue(new TeleopShootCommand(m_shootSubsystem));
   }
 
   /**
@@ -70,6 +67,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
+    return null;
   }
 }
