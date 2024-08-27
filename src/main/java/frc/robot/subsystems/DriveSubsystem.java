@@ -128,10 +128,10 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void resetEncoders(){
-    backLeftEncoder.reset();
-     backRightEncoder.reset();
-     frontLeftEncoder.reset();
-     frontRightEncoder.reset();
+    backLeftEncoder.setPosition(0);
+     backRightEncoder.setPosition(0);
+     frontLeftEncoder.setPosition(0);
+     frontRightEncoder.setPosition(0);
   }
 
   public void stopDriving() {
