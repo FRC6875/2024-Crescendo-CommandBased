@@ -27,8 +27,8 @@ public class RobotContainer {
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
   private final ShootSubsystem m_shootSubsystem = new ShootSubsystem();
 
-  XboxController m_controller1 = new CommandXboxController(Constants.ControllerConstants.kXboxController1Port); //drive controller
-  XboxController m_controller2 = new CommandXboxController(Constants.ControllerConstants.kXboxController2Port); //shoot/intake/actuator controller
+  CommandXboxController m_controller1 = new CommandXboxController(Constants.ControllerConstants.kXboxController1Port); //drive controller
+  CommandXboxController m_controller2 = new CommandXboxController(Constants.ControllerConstants.kXboxController2Port); //shoot/intake/actuator controller
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -53,7 +53,7 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
 
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    //m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     // while a is being held on the 2nd controller, create a new instance of TeleopIntakeCommand
     m_controller2.a(null).whileTrue(new TeleopIntakeCommand(m_intakeSubsystem));
 
