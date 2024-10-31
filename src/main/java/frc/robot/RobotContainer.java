@@ -55,9 +55,9 @@ public class RobotContainer {
 
     //m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     // while a is being held on the 2nd controller, create a new instance of TeleopIntakeCommand
-    m_controller2.a(null).whileTrue(new TeleopIntakeCommand(m_intakeSubsystem));
+    m_controller2.a().whileTrue(new TeleopIntakeCommand(m_intakeSubsystem));
 
-    // m_controller2.x().whileTrue(new TeleopShootCommand(m_shootSubsystem));
+    m_controller2.x().whileTrue(new TeleopShootCommand(m_shootSubsystem));
   }
 
   /**
