@@ -41,7 +41,7 @@ public class ShootSubsystem extends SubsystemBase {
     leftShoot.setInverted(true);
     rightShoot.setInverted(false);
     leftShoot2.setInverted(true);
-    rightShoot2.setInverted(false);
+    rightShoot2.setInverted(true);
 
 
   }

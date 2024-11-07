@@ -30,9 +30,9 @@ public class TeleopShootCommand extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_shootSubsystem.runNeos(0.7);
-    if(m_shootSubsystem.getShootSpeed(0.65)){
-      m_shootSubsystem.runSims(0.7);
+    m_shootSubsystem.runNeos(0.12);// 0.7 origanly
+    if(m_shootSubsystem.getShootSpeed(0.1)){//0.65 origanly
+      m_shootSubsystem.runSims(0.12);//0.7 origanly
     }
   }
 
