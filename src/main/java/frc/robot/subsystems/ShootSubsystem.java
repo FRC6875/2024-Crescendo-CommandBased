@@ -53,7 +53,7 @@ public class ShootSubsystem extends SubsystemBase {
    */
 
   public boolean getShootSpeed(double threshold){
-    return (leftShoot.get() == threshold) && (rightShoot.get() == threshold);
+    return (leftShoot.get() >= threshold) && (rightShoot.get() >= threshold);
   }
 
   public void runSims(double speed){
