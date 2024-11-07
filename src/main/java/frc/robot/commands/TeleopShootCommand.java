@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.ShootSubsystem;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
@@ -31,8 +32,10 @@ public class TeleopShootCommand extends Command {
   @Override
   public void execute() {
     m_shootSubsystem.runNeos(0.7);// 0.7 origanly
+    m_shootSubsystem.runSims(0.7);//0.7 origanly
     if (m_shootSubsystem.getShootSpeed(0.65)){//0.65 origanly
       m_shootSubsystem.runSims(0.7);//0.7 origanly
+      DriverStation.reportWarning("Shoot Speed",false);
     }
   }
 
