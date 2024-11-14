@@ -41,7 +41,7 @@ public class RobotContainer {
         // hand, and turning controlled by the right.
         Commands.run(
             () ->
-                m_robotDrive.drive((m_controller1.getLeftY())*0.1, m_controller1.getLeftX()), m_robotDrive));
+                m_robotDrive.drive((m_controller1.getLeftY())*0.5, m_controller1.getLeftX()), m_robotDrive));
 
   }
 
