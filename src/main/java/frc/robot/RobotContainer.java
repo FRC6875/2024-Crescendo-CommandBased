@@ -10,6 +10,7 @@ import frc.robot.subsystems.ShootSubsystem;
 import frc.robot.commands.TeleopShootCommand;
 import frc.robot.commands.TeleopIntakeCommand;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj.XboxController;
@@ -34,6 +35,14 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+
+    m_robotDrive.setDefaultCommand(
+        // A split-stick arcade command, with forward/backward controlled by the left
+        // hand, and turning controlled by the right.
+        Commands.run(
+            () ->
+                m_robotDrive.drive((m_controller1.getLeftY())*0.1, m_controller1.getLeftX()), m_robotDrive));
+
   }
 
   /**
@@ -56,8 +65,9 @@ public class RobotContainer {
     //m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     // while a is being held on the 2nd controller, create a new instance of TeleopIntakeCommand
     m_controller2.a().whileTrue(new TeleopIntakeCommand(m_intakeSubsystem));
-
     m_controller2.x().whileTrue(new TeleopShootCommand(m_shootSubsystem));
+
+
   }
 
   /**
