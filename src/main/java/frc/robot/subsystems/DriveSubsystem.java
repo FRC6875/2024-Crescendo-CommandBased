@@ -128,7 +128,7 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public double transformY(double forward) {
-    return forward*0.8;2
+    return forward*0.8;
     // if (forward < 0) {
     //   return -1*(Math.pow(forward,2)*0.8);
     // }
