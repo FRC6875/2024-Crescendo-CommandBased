@@ -5,19 +5,19 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
-
+import com.kauailabs.navx.frc.AHRS;
+import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
-import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.SparkRelativeEncoder.Type;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.SPI;
-import java.lang.Math;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 
 public class DriveSubsystem extends SubsystemBase {
@@ -126,6 +126,16 @@ public class DriveSubsystem extends SubsystemBase {
   public void drive(double forward, double rotation){
     m_robotDrive.arcadeDrive(transformY(forward), rotation);
   }
+
+   public void driveDistance(double speed, double targetDistance){
+    double initialPostion = frontRightEncoder.getPosition();
+    targetDistance = targetDistance + initialPostion;
+    while (Math.abs(frontRightEncoder.getPosition()) < Math.abs(targetDistance)) { //while the encoder (starting at 0 distance) is less than the target distance
+      m_robotDrive.arcadeDrive(speed*-1,0); // drive forward at given speed
+      SmartDashboard.putNumber("Front right Distance", Math.abs(frontRightEncoder.getPosition()));
+    }
+    m_robotDrive.arcadeDrive(0,0); 
+  } // end driveDistance
 
   public double transformY(double forward) {
     return forward*0.8;
