@@ -20,7 +20,7 @@ public class AutoIntakeCommand extends Command {
   public AutoIntakeCommand(IntakeSubsystem intakeSubsystem) {
     m_intakeSubsystem = intakeSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    //addRequirements(intakeSubsystem);
+    addRequirements(intakeSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -42,6 +42,7 @@ public class AutoIntakeCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return m_intakeSubsystem.isIntake();
+  //  return m_intakeSubsystem.isIntake();
+  return true; 
   }
 }
