@@ -124,8 +124,18 @@ public class DriveSubsystem extends SubsystemBase {
     return false;
   }
   public void drive(double forward, double rotation){
-    m_robotDrive.arcadeDrive(forward, rotation);
+    m_robotDrive.arcadeDrive(transformY(forward), rotation);
   }
+
+  public double transformY(double forward) {
+    if (forward < 0) {
+      return -1*(Math.pow(forward,4)*0.8);
+    }
+    else {
+      return Math.pow(forward,4);
+    }
+  }
+
 
   public void resetEncoders(){
      backLeftEncoder.setPosition(0);
