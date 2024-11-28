@@ -8,12 +8,15 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootSubsystem;
 import frc.robot.commands.TeleopShootCommand;
+import frc.robot.commands.DriveShootCommand;
 import frc.robot.commands.TeleopIntakeCommand;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -27,6 +30,10 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
   private final ShootSubsystem m_shootSubsystem = new ShootSubsystem();
+  private final DriveShootCommand m_DriveShootCommand = new DriveShootCommand(m_robotDrive, m_shootSubsystem);
+
+  // A chooser for autonomous commands
+  SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   CommandXboxController m_controller1 = new CommandXboxController(Constants.ControllerConstants.kXboxController1Port); //drive controller
   CommandXboxController m_controller2 = new CommandXboxController(Constants.ControllerConstants.kXboxController2Port); //shoot/intake/actuator controller
@@ -35,6 +42,10 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+
+    m_chooser.addOption("Drive Shoot Command", m_DriveShootCommand);
+
+    SmartDashboard.putData("Auto Chooser", m_chooser);
 
     m_robotDrive.setDefaultCommand(
         // A split-stick arcade command, with forward/backward controlled by the left
@@ -77,6 +88,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return null;
+    return m_chooser.getSelected();
   }
 }
