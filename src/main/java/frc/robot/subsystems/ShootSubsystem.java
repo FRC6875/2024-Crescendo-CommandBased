@@ -34,8 +34,8 @@ public class ShootSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public ShootSubsystem() {
      
-  //  rightShootEncoder = rightShoot.getEncoder(Type.kHallSensor, 42);
-  //  leftShootEncoder = leftShoot.getEncoder(Type.kHallSensor, 42);
+    //rightShootEncoder = rightShoot.getEncoder(Type.kHallSensor, 42);
+    //leftShootEncoder = leftShoot.getEncoder(Type.kHallSensor, 42);
 
 //set motor inversions
     leftShoot.setInverted(true);

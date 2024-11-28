@@ -127,14 +127,15 @@ public class DriveSubsystem extends SubsystemBase {
     m_robotDrive.arcadeDrive(transformY(forward), rotation);
   }
 
-   public void driveDistance(double speed, double targetDistance){
-    double initialPostion = frontRightEncoder.getPosition();
-    targetDistance = targetDistance + initialPostion;
-    while (Math.abs(frontRightEncoder.getPosition()) < Math.abs(targetDistance)) { //while the encoder (starting at 0 distance) is less than the target distance
-      m_robotDrive.arcadeDrive(speed*-1,0); // drive forward at given speed
-      SmartDashboard.putNumber("Front right Distance", Math.abs(frontRightEncoder.getPosition()));
-    }
-    m_robotDrive.arcadeDrive(0,0); 
+   public void driveDistance(double speed){ // removed sitance argument
+    // double initialPostion = frontRightEncoder.getPosition();
+    // targetDistance = targetDistance + initialPostion;
+    // while (Math.abs(frontRightEncoder.getPosition()) < Math.abs(targetDistance)) { //while the encoder (starting at 0 distance) is less than the target distance
+    //   m_robotDrive.arcadeDrive(speed*-1,0); // drive forward at given speed
+    //   SmartDashboard.putNumber("Front right Distance", Math.abs(frontRightEncoder.getPosition()));
+    // }
+    // m_robotDrive.arcadeDrive(0,0); 
+     m_robotDrive.arcadeDrive(speed*-0.8,0);
   } // end driveDistance
 
   public double transformY(double forward) {
@@ -162,6 +163,11 @@ public class DriveSubsystem extends SubsystemBase {
   public void resetGyro(){
     gyro.reset();
   }
+
+  public double getEncoderPosition(){
+    return frontLeftEncoder.getPosition();
+  }
+
 
   @Override
   public void periodic() {

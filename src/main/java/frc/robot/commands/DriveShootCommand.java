@@ -18,8 +18,8 @@ public class DriveShootCommand extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-    new AutoShootCommand(m_ShootSubsystem),
-    new AutoDriveCommand(m_driveSubsystem)
+    //new AutoShootCommand(m_ShootSubsystem),
+    new AutoDriveCommand(0.5, 10.00, m_driveSubsystem) //
     );
   }
 }
