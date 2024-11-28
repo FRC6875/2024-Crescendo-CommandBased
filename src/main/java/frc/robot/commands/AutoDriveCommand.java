@@ -42,6 +42,6 @@ public final double m_distance;
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return Math.abs(m_driveSubsystem.getEncoderPosition()) >= m_distance;
+    return m_driveSubsystem.getEncoderPosition() >= m_distance;
   }
 }

@@ -30,7 +30,7 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
   private final ShootSubsystem m_shootSubsystem = new ShootSubsystem();
-  private final DriveShootCommand m_DriveShootCommand = new DriveShootCommand(m_robotDrive, m_shootSubsystem);
+  private final DriveShootCommand m_DriveShootCommand = new DriveShootCommand(m_robotDrive, m_intakeSubsystem);
 
   // A chooser for autonomous commands
   SendableChooser<Command> m_chooser = new SendableChooser<>();

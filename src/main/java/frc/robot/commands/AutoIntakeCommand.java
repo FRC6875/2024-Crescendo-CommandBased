@@ -6,11 +6,13 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.Timer;
 
 /** An example command that uses an example subsystem. */
 public class AutoIntakeCommand extends Command {
 
   private final IntakeSubsystem m_intakeSubsystem;
+  Timer intakeTimer = new Timer();
 
   /**
    * Creates a new AutoIntakeCommand.
@@ -25,7 +27,10 @@ public class AutoIntakeCommand extends Command {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    intakeTimer.reset();
+    intakeTimer.start();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -37,12 +42,13 @@ public class AutoIntakeCommand extends Command {
   @Override
   public void end(boolean interrupted) {
       m_intakeSubsystem.intakeStop();
+      intakeTimer.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
   //  return m_intakeSubsystem.isIntake();
-  return true; 
+  return intakeTimer.hasElapsed(8); //if 8 seconds have passed, stop running intake motor
   }
 }
