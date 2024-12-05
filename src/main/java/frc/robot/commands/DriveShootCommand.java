@@ -14,13 +14,14 @@ import frc.robot.subsystems.ShootSubsystem;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class DriveShootCommand extends SequentialCommandGroup {
   /** Creates a new DriveShootCommand. */
-  public DriveShootCommand(DriveSubsystem m_driveSubsystem, IntakeSubsystem m_intakeSubsystem) {
+  public DriveShootCommand(DriveSubsystem m_driveSubsystem, IntakeSubsystem m_intakeSubsystem, ShootSubsystem m_shootSubsystem) {
   
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand()); 
     addCommands(
     new AutoIntakeCommand(m_intakeSubsystem), //-> uncomment this when youre done testing directions
-    new AutoDriveCommand(-1.00, -10.00, m_driveSubsystem) //
+    new AutoDriveCommand(-1.00, -10.00, m_driveSubsystem), //
+    new AutoShootCommand(m_shootSubsystem)
     // speed +, direction + -> drives backwards
     // speed -, distance + -> drives forwards extra far?
     // think it would do the same with speed +, distance -
