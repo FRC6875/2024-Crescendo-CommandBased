@@ -20,7 +20,7 @@ public class DriveShootCommand extends SequentialCommandGroup {
     // addCommands(new FooCommand(), new BarCommand()); 
     addCommands(
     new AutoIntakeCommand(m_intakeSubsystem), //-> uncomment this when youre done testing directions
-    new AutoDriveCommand(-1.00, -10.00, m_driveSubsystem), //
+    new AutoDriveCommand(1.00, 10.00, m_driveSubsystem), //
     new AutoShootCommand(m_shootSubsystem)
     // speed +, direction + -> drives backwards
     // speed -, distance + -> drives forwards extra far?
